@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postulación Digital - Subsidio de Agua Potable (SAP) | DIDECO Chillán</title>
+    <style>
+        :root {
+            --color-primario: #c8102e;
+            --color-secundario: #1e293b;
+            --color-texto-usuario: #003366;
+            --color-placeholder: #94a3b8;
+            --color-fondo: #f8fafc;
+            --color-borde: #cbd5e1;
+            --color-exito: #15803d;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-secundario);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid var(--color-primario);
+        }
+
+        header {
+            border-bottom: 1px solid var(--color-borde);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 5px 0;
+            font-size: 1.6rem;
+            color: var(--color-primario);
+        }
+
+        header p {
+            margin: 0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        fieldset {
+            border: 1px solid var(--color-borde);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        legend {
+            font-weight: 600;
+            color: var(--color-secundario);
+            padding: 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .fila {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .fila {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .campo {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+        }
+
+        .obligatorio {
+            color: var(--color-primario);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--color-borde);
+            border-radius: 6px;
+            font-size: 0.96rem;
+            color: var(--color-texto-usuario);
+            font-weight: 600;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--color-placeholder);
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        input:not(:placeholder-shown),
+        textarea:not(:placeholder-shown) {
+            background-color: #f0f7ff;
+            border-color: #7dd3fc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primario);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.12);
+        }
+
+        .caja-archivo {
+            background-color: #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px dashed #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .ayuda {
+            display: block;
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .declaracion {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .declaracion label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: normal;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .declaracion input[type="checkbox"] {
+            margin-top: 4px;
+            transform: scale(1.2);
+        }
+
+        button[type="submit"] {
+            background-color: var(--color-primario);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #a00d25;
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #94a3b8;
+            cursor: wait;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <header>
+        <h1>Solicitud / Renovación Subsidio de Agua Potable (SAP)</h1>
+        <p>Dirección de Desarrollo Comunitario (DIDECO) — Ilustre Municipalidad de Chillán</p>
+    </header>
+
+    <!-- Configurado temporalmente a tu correo para pruebas -->
+    <form id="formularioSAP" action="https://formsubmit.co/williamsneira@gmail.com" method="POST" enctype="multipart/form-data">
+        
+        <input type="hidden" name="_subject" id="asuntoCorreo" value="Solicitud Subsidio Agua Potable">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Folio_Generado" id="folioOculto" value="">
+
+        <!-- SECCIÓN 1: DATOS DEL BENEFICIARIO -->
+        <fieldset>
+            <legend>1. Datos de la Persona Beneficiaria (Jefe/a de Hogar)</legend>
+            
+            <div class="fila">
+                <div class="campo">
+                    <label for="nombreBeneficiario">Nombre Completo <span class="obligatorio">*</span></label>
+                    <input type="text" id="nombreBeneficiario" name="Nombre_Beneficiario" placeholder="Ej: Juan Pérez González" required>
+                </div>
+                <div class="campo">
+                    <label for="rutBeneficiario">RUN (con guion y dígito verificador) <span class="obligatorio">*</span></label>
+                    <input type="text" id="rutBeneficiario" name="RUN_Beneficiario" placeholder="Ej: 12.345.678-9" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="direccion">Dirección del Domicilio en Chillán <span class="obligatorio">*</span></label>
+                    <input type="text" id="direccion" name="Direccion_Domicilio" placeholder="Calle, número, población/villa" required>
+                </div>
+                <div class="campo">
+                    <label for="numeroServicio">N° de Cliente / Servicio (Essbio) <span class="obligatorio">*</span></label>
+                    <input type="text" id="numeroServicio" name="Numero_Cliente_Essbio" placeholder="Ej: 1234567-8" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="tipoTramite">Tipo de Solicitud <span class="obligatorio">*</span></label>
+                    <select id="tipoTramite" name="Tipo_Tramite" required>
+                        <option value="">Seleccione una opción...</option>
+                        <option value="Renovación">Renovación de Subsidio (Vencimiento de plazo)</option>
+                        <option value="Primera Postulación">Postulación por primera vez</option>
+                        <option value="Cambio de Domicilio">Cambio de domicilio</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="telefonoBeneficiario">Teléfono de Contacto <span class="obligatorio">*</span></label>
+                    <input type="tel" id="telefonoBeneficiario" name="Telefono_Contacto" placeholder="+56 9 XXXX XXXX" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN 2: DATOS DEL REPRESENTANTE (OPCIONAL) -->
+        <fieldset>
+            <legend>2. Datos de Quien Realiza el Trámite (Si actúa en representación)</legend>
+            <p class="ayuda" style="margin-bottom: 12px;">Completar solo si el trámite es ingresado por un familiar, cuidador o representante por motivos de salud o movilidad reducida del titular.</p>
+            
+            <div class="fila">
+                <div class="campo">
+                    <label for="nombreRepresentante">Nombre Completo del Representante</label>
+                    <input type="text" id="nombreRepresentante" name="Nombre_Representante" placeholder="Nombre y apellidos">
+                </div>
+                <div class="campo">
+                    <label for="rutRepresentante">RUN del Representante</label>
+                    <input type="text" id="rutRepresentante" name="RUN_Representante" placeholder="Ej: 15.678.901-2">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="parentesco">Vínculo o Parentesco</label>
+                    <input type="text" id="parentesco" name="Parentesco_Vinculo" placeholder="Ej: Hijo/a, Hermano/a, Cuidador/a">
+                </div>
+                <div class="campo">
+                    <label for="correoContacto">Correo Electrónico para Notificaciones <span class="obligatorio">*</span></label>
+                    <input type="email" id="correoContacto" name="email" placeholder="ejemplo@correo.cl" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN 3: DOCUMENTACIÓN ADJUNTA -->
+        <fieldset>
+            <legend>3. Documentos Requeridos (Formatos PDF, JPG o PNG - Máx. 5 MB c/u)</legend>
+
+            <div class="caja-archivo">
+                <label for="docCedula">1) Cédula de Identidad vigente del beneficiario (ambos lados) <span class="obligatorio">*</span></label>
+                <input type="file" id="docCedula" name="1_Cedula_Identidad" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                <span class="ayuda">Puede adjuntar un PDF con ambos lados o seleccionar 2 imágenes (anverso y reverso).</span>
+            </div>
+
+            <div class="caja-archivo">
+                <label for="docBoleta">2) Última boleta de agua potable <span class="obligatorio">*</span></label>
+                <input type="file" id="docBoleta" name="2_Ultima_Boleta_Agua" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="caja-archivo">
+                <label for="docComprobantePago">3) Comprobante de pago de la última boleta (deuda $0) <span class="obligatorio">*</span></label>
+                <input type="file" id="docComprobantePago" name="3_Comprobante_Pago" accept=".pdf,.jpg,.jpeg,.png" required>
+                <span class="ayuda">Comprobante de caja, transferencia o captura del portal web con saldo $0.</span>
+            </div>
+
+            <div class="caja-archivo">
+                <label for="docRSH">4) Cartola del Registro Social de Hogares (RSH) <span class="obligatorio">*</span></label>
+                <input type="file" id="docRSH" name="4_Registro_Social_Hogares" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="caja-archivo">
+                <label for="docOtros">5) Otros documentos de respaldo (Opcional)</label>
+                <input type="file" id="docOtros" name="5_Documentos_Adicionales" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <span class="ayuda">Ej: Credencial de Discapacidad, certificado médico o poder simple.</span>
+            </div>
+
+            <div class="campo">
+                <label for="observaciones">Observaciones adicionales</label>
+                <textarea id="observaciones" name="Observaciones" rows="3" placeholder="Indique aquí cualquier antecedente relevante para la evaluación social..."></textarea>
+            </div>
+        </fieldset>
+
+        <!-- DECLARACIÓN JURADA SIMPLE -->
+        <div class="declaracion">
+            <label>
+                <input type="checkbox" id="aceptoDeclaracion" name="Declaracion_Jurada" value="Aceptada" required>
+                <span>Declaro bajo fe de juramento que los datos ingresados y los documentos adjuntos son fidedignos y corresponden al grupo familiar postulante, autorizando a DIDECO Chillán a verificar esta información en los registros públicos pertinentes.</span>
+            </label>
+        </div>
+
+        <button type="submit" id="btnEnviar">Enviar Postulación Digital</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('formularioSAP');
+    const nombreInput = document.getElementById('nombreBeneficiario');
+    const rutInput = document.getElementById('rutBeneficiario');
+    const tramiteSelect = document.getElementById('tipoTramite');
+    const asuntoInput = document.getElementById('asuntoCorreo');
+    const folioInput = document.getElementById('folioOculto');
+    const btnEnviar = document.getElementById('btnEnviar');
+
+    function actualizarAsunto() {
+        const nombre = nombreInput.value.trim() || 'Sin Nombre';
+        const rut = rutInput.value.trim() || 'Sin RUN';
+        const tramite = tramiteSelect.value || 'Solicitud';
+        asuntoInput.value = `[SAP - ${tramite}] ${nombre} | RUN: ${rut}`;
+    }
+
+    nombreInput.addEventListener('input', actualizarAsunto);
+    rutInput.addEventListener('input', actualizarAsunto);
+    tramiteSelect.addEventListener('change', actualizarAsunto);
+
+    form.addEventListener('submit', function() {
+        actualizarAsunto();
+        const fecha = new Date();
+        const folio = 'SAP-' + fecha.getFullYear() + '-' + Math.floor(100000 + Math.random() * 900000);
+        folioInput.value = folio;
+
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = 'Enviando solicitud y documentos adjuntos...';
+    });
+</script>
+
+</body>
+</html>
